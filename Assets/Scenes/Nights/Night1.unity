@@ -694,11 +694,9 @@ GameObject:
   - component: {fileID: 193039720}
   - component: {fileID: 193039723}
   - component: {fileID: 193039724}
-  - component: {fileID: 193039726}
-  - component: {fileID: 193039725}
   - component: {fileID: 193039727}
   - component: {fileID: 193039728}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -753,7 +751,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &193039722
@@ -808,83 +806,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &193039725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193039719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: d965aa29a49365c4a8ed6849151a2b15, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
---- !u!114 &193039726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193039719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 193039722}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!82 &193039727
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4490,7 +4411,7 @@ GameObject:
   - component: {fileID: 783575868}
   - component: {fileID: 783575870}
   - component: {fileID: 783575869}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cam4A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4520,7 +4441,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783575867}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -4769,7 +4690,7 @@ GameObject:
   - component: {fileID: 818377764}
   - component: {fileID: 818377766}
   - component: {fileID: 818377765}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cam1A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4859,12 +4780,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818377761}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 818377762}
+  volumeTrigger: {fileID: 783575868}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -6162,7 +6083,7 @@ GameObject:
   - component: {fileID: 937904534}
   - component: {fileID: 937904536}
   - component: {fileID: 937904537}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cam1B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6235,12 +6156,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937904533}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 937904534}
+  volumeTrigger: {fileID: 783575868}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -7174,7 +7095,7 @@ GameObject:
   - component: {fileID: 1116862722}
   - component: {fileID: 1116862724}
   - component: {fileID: 1116862723}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cam5A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7204,12 +7125,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116862721}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1116862722}
+  volumeTrigger: {fileID: 783575868}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -11827,7 +11748,7 @@ GameObject:
   - component: {fileID: 1464616079}
   - component: {fileID: 1464616081}
   - component: {fileID: 1464616080}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cam5B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11857,12 +11778,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464616078}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1464616079}
+  volumeTrigger: {fileID: 783575868}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -14541,7 +14462,7 @@ GameObject:
   - component: {fileID: 1852353573}
   - component: {fileID: 1852353575}
   - component: {fileID: 1852353576}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cam2B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14614,12 +14535,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852353572}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1852353573}
+  volumeTrigger: {fileID: 783575868}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -14678,7 +14599,7 @@ GameObject:
   - component: {fileID: 1855080140}
   - component: {fileID: 1855080142}
   - component: {fileID: 1855080141}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cam3A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14708,12 +14629,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855080139}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1855080140}
+  volumeTrigger: {fileID: 783575868}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -14993,7 +14914,7 @@ GameObject:
   - component: {fileID: 1887952627}
   - component: {fileID: 1887952629}
   - component: {fileID: 1887952630}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cam2A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15066,12 +14987,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887952626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1887952627}
+  volumeTrigger: {fileID: 783575868}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -16759,7 +16680,7 @@ GameObject:
   - component: {fileID: 2105883870}
   - component: {fileID: 2105883872}
   - component: {fileID: 2105883871}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cam6A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16789,12 +16710,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105883869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 2105883870}
+  volumeTrigger: {fileID: 783575868}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 1024
