@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class ResLightManager : MonoBehaviour {
     public GameObject[] lights;
@@ -33,8 +34,27 @@ public class ResLightManager : MonoBehaviour {
 
             lastRememberedState = tabletScript.isLooking;
         }
-    }
 
+        if (tabletScript.isLooking) {
+            if (UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches.Count == 0) {
+                if (hasToggledLights) {
+                    // DisableLightInternal();
+                }
+            } else {
+                foreach (var x in Touchscreen.current.touches) {
+                    float xValue = x.position.x.ReadValue();
+                    float yValue = x.position.y.ReadValue();
+                    if (160f <= xValue && xValue <= 1126f) {
+                        if (!hasToggledLights) {
+                            // EnableLightInternal();
+                        }
+                    }
+                }
+            }
+
+        }
+        // Debug.Log(string.Format("X: {0}, Y: {1}", Touchscreen.current.primaryTouch.position.x.ReadValue(), Touchscreen.current.primaryTouch.position.y.ReadValue()));
+    }
 
     void EnableLight(InputAction.CallbackContext context) {
         switch (tabletScript.currentCam) {

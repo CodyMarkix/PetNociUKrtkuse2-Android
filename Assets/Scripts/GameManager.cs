@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
 
         if (currentScene == 0) {
+            if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer) {
+                Screen.orientation = ScreenOrientation.LandscapeLeft;
+            }
+            
             if (!PlayerPrefs.HasKey("night")) {
                 SetUpPlayerPrefs();
             }
@@ -30,10 +34,6 @@ public class GameManager : MonoBehaviour {
             
             night = PlayerPrefs.GetInt("night");
 
-            if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer) {
-                Screen.orientation = ScreenOrientation.LandscapeLeft;
-            }
-            
             if (PlayerPrefs.GetInt("night") >= 6) { nightsixbutton.SetActive(true); }
             if (PlayerPrefs.GetInt("night") >= 7) { nightsevenbutton.SetActive(true); }
 
