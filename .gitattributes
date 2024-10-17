@@ -128,3 +128,5 @@
 *.gz lfs
 *.rar lfs
 *.tar lfs
+
+!Github/**/* 
