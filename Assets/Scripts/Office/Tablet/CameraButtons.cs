@@ -25,7 +25,7 @@ public class CameraButtons : MonoBehaviour {
                 transform.gameObject.GetComponent<Image>().sprite = buttonSprites[0];
                 tabletScript.currentCam = "Cam1A";
                 camToggleSFX.Play();
-                tabletScript.Cam1A();
+                tabletScript.SwitchCam("Cam1A");
                 break;
 
             case "Cam1B":
@@ -33,7 +33,7 @@ public class CameraButtons : MonoBehaviour {
                 transform.gameObject.GetComponent<Image>().sprite = buttonSprites[1];
                 tabletScript.currentCam = "Cam1B";
                 camToggleSFX.Play();
-                tabletScript.Cam1B();
+                tabletScript.SwitchCam("Cam1B");
                 break;
 
             case "Cam2A":
@@ -41,7 +41,7 @@ public class CameraButtons : MonoBehaviour {
                 transform.gameObject.GetComponent<Image>().sprite = buttonSprites[2];
                 tabletScript.currentCam = "Cam2A";
                 camToggleSFX.Play();
-                tabletScript.Cam2A();
+                tabletScript.SwitchCam("Cam2A");
                 break;
 
             case "Cam2B":
@@ -49,7 +49,7 @@ public class CameraButtons : MonoBehaviour {
                 transform.gameObject.GetComponent<Image>().sprite = buttonSprites[3];
                 tabletScript.currentCam = "Cam2B";
                 camToggleSFX.Play();
-                tabletScript.Cam2B();
+                tabletScript.SwitchCam("Cam2B");
                 break;
 
             case "Cam3A":
@@ -57,7 +57,7 @@ public class CameraButtons : MonoBehaviour {
                 transform.gameObject.GetComponent<Image>().sprite = buttonSprites[4];
                 tabletScript.currentCam = "Cam3A";
                 camToggleSFX.Play();
-                tabletScript.Cam3A();
+                tabletScript.SwitchCam("Cam3A");
                 break;
 
             case "Cam4A":
@@ -65,7 +65,7 @@ public class CameraButtons : MonoBehaviour {
                 transform.gameObject.GetComponent<Image>().sprite = buttonSprites[5];
                 tabletScript.currentCam = "Cam4A";
                 camToggleSFX.Play();
-                tabletScript.Cam4A();
+                tabletScript.SwitchCam("Cam4A");
                 break;
 
             case "Cam5A":
@@ -73,7 +73,7 @@ public class CameraButtons : MonoBehaviour {
                 transform.gameObject.GetComponent<Image>().sprite = buttonSprites[6];
                 tabletScript.currentCam = "Cam5A";
                 camToggleSFX.Play();
-                tabletScript.Cam5A();
+                tabletScript.SwitchCam("Cam5A");
                 break;
 
             case "Cam5B":
@@ -81,7 +81,7 @@ public class CameraButtons : MonoBehaviour {
                 transform.gameObject.GetComponent<Image>().sprite = buttonSprites[7];
                 tabletScript.currentCam = "Cam5B";
                 camToggleSFX.Play();
-                tabletScript.Cam5B();
+                tabletScript.SwitchCam("Cam5B");
                 break;
 
             case "Cam6A":
@@ -89,14 +89,14 @@ public class CameraButtons : MonoBehaviour {
                 transform.gameObject.GetComponent<Image>().sprite = buttonSprites[8];
                 tabletScript.currentCam = "Cam6A";
                 camToggleSFX.Play();
-                tabletScript.Cam6A();
+                tabletScript.SwitchCam("Cam6A");
                 break;
 
             case "Cam6B":
                 ToggleCamButtons("Cam6B");
                 transform.gameObject.GetComponent<Image>().sprite = buttonSprites[9];
                 camToggleSFX.Play();
-                tabletScript.Cam6B();
+                tabletScript.SwitchCam("Cam6B");
                 break;
 
             default:

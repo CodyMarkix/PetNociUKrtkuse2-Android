@@ -5,6 +5,6 @@ using UnityEngine;
 public class FPSMeter : MonoBehaviour
 {
     void FixedUpdate() {
-        Debug.LogWarning(string.Format("FPS: {0}", 1.0f / Time.deltaTime));
+        // Debug.LogWarning(string.Format("FPS: {0}", 1.0f / Time.deltaTime));
     }
 }
