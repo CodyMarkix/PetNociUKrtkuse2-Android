@@ -47,7 +47,7 @@ public class LightMapMgr : MonoBehaviour {
 			blightmap.Add(lmdata);
 		}
 		
-		brightLightmap = blightmap.ToArray();
+        brightLightmap = blightmap.ToArray();
 
         map.FindAction("toggleDark").performed += SwitchToDarkKeybind;
         map.FindAction("toggleLight").performed += SwitchToLightKeybind;

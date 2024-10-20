@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class IntroWarning : MonoBehaviour {
     public Animator[] animators;
+    public SaveFileManager saveMgr;
 
     // Start is called before the first frame update
     void Start() {
@@ -24,10 +25,10 @@ public class IntroWarning : MonoBehaviour {
 
     IEnumerator SetScene() {
         yield return new WaitForSeconds(1);
-        if (PlayerPrefs.GetInt("started") == 1) {
+        if (saveMgr.GetStarted() == 1) {
             SceneManager.LoadScene(1);
         } else {
-            SceneManager.LoadScene(12);
+            SceneManager.LoadScene(6);
         }
     }
 }

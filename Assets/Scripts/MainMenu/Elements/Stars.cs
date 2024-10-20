@@ -10,11 +10,12 @@ public class Stars : MonoBehaviour {
     private GameObject[][] spriteArrays;
     private int arrayPtr;
 
+    public SaveFileManager saveMgr;
     public InputActionMap map;
 
     void Awake() {
         spriteArrays = new GameObject[][] {starsArr, badStarsArr};
-        arrayPtr = PlayerPrefs.GetInt("badStars") | 0;
+        arrayPtr = saveMgr.GetBadStars() | 0;
     }
 
     // Start is called before the first frame update
@@ -24,12 +25,13 @@ public class Stars : MonoBehaviour {
         map.FindAction("toggleSprites").performed += toggleSprites;
 
         // Promiň
-        PlayerPrefs.SetInt("badStars", 0);
-        PlayerPrefs.Save();
+        // PlayerPrefs.SetInt("badStars", 0);
+        // PlayerPrefs.Save();
         renderSprites();
     }
 
     void toggleSprites(InputAction.CallbackContext context) {
+        /*
         if (PlayerPrefs.GetInt("badStars") == 1) {
             PlayerPrefs.SetInt("badStars", 0);
             arrayPtr = 0;
@@ -38,6 +40,8 @@ public class Stars : MonoBehaviour {
             arrayPtr = 1;
         }
         PlayerPrefs.Save();
+        */
+        saveMgr.ToggleBadStars();
         
         renderSprites();
     }
@@ -51,9 +55,9 @@ public class Stars : MonoBehaviour {
             y.SetActive(false);
         }
 
-        switch (PlayerPrefs.GetInt("night")) {
+        switch (saveMgr.GetNight()) {
             case 6:
-                if (PlayerPrefs.GetInt("badStars") == 1) {
+                if (saveMgr.GetBadStars() == 1) {
                     spriteArrays[arrayPtr][0].SetActive(true);
                 } else {
                     spriteArrays[arrayPtr][0].SetActive(true);
@@ -61,7 +65,7 @@ public class Stars : MonoBehaviour {
                 break;
 
             case 7:
-                if (PlayerPrefs.GetInt("badStars") == 1) {
+                if (saveMgr.GetBadStars() == 1) {
                     spriteArrays[arrayPtr][0].SetActive(true);
                     spriteArrays[arrayPtr][1].SetActive(true);
                 } else {
@@ -71,7 +75,7 @@ public class Stars : MonoBehaviour {
                 break;
 
             case 8:
-                if (PlayerPrefs.GetInt("badStars") == 1) {
+                if (saveMgr.GetBadStars() == 1) {
                     spriteArrays[arrayPtr][0].SetActive(true);
                     spriteArrays[arrayPtr][1].SetActive(true);
                     spriteArrays[arrayPtr][2].SetActive(true);

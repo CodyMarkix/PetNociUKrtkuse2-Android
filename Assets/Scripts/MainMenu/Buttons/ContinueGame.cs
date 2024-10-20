@@ -4,15 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ContinueGame : MonoBehaviour {
+    public SaveFileManager saveMgr;
+    
     public void OnButtonPress() {
-        if (!PlayerPrefs.HasKey("night") || PlayerPrefs.GetInt("night") == 0) {
-            PlayerPrefs.SetInt("night", 1);
+        if (saveMgr.GetNight() == 0) {
+            saveMgr.SetNight(1);
         }
 
-        if (PlayerPrefs.GetInt("night") <= 5) {
-            SceneManager.LoadScene(PlayerPrefs.GetInt("night") + 1);
-            Debug.Log(PlayerPrefs.GetInt("night"));
+        if (saveMgr.GetNight() <= 5) {
+            SceneManager.LoadScene(saveMgr.GetNight() + 1);
+            Debug.Log(saveMgr.GetNight());
         } else {
+            saveMgr.SaveAll();
             SceneManager.LoadScene(6); // Night 5 scene
         }
     }

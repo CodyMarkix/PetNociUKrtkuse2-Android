@@ -33,9 +33,10 @@ public class Krtkus : MonoBehaviour {
         "door"
     };
 
-    [Header("AI values")]
-    [Range(0, 20)]
+    [System.NonSerialized]
     public int AILevel;
+
+    [Header("AI values")]
     public bool opportunityRandomness;
 
     [Header("Scary spoopy")]
@@ -49,15 +50,20 @@ public class Krtkus : MonoBehaviour {
     public LightButton lightScript;
     public GameTime gameTimeScript;
     public GameObject realtimeLight;
+    public SaveFileManager saveMgr;
 
     private bool movementOpportunity = false;
     private bool canHaveOpportunity = true;
     private int currentPosIndex = 0;
     private Vector3 initialPos;
     private bool beenNoticedInDoor = false;
+    private int[] initialAILevels = {
+        0, 3, 0, 2, 5, 5
+    };
     System.Random rng = new System.Random();
     
     void Start() {
+        AILevel = initialAILevels[saveMgr.GetNight() - 1];
         StartCoroutine(giveOpportunity());
         initialPos = restaurantPositions["podium"];
     }
@@ -235,7 +241,7 @@ public class Krtkus : MonoBehaviour {
     public IEnumerator Jumpscare() {
         Debug.LogAssertion("JUMPSCARE KRTKUS");
         realtimeLight.SetActive(true);
-        PlayerPrefs.SetInt("night", SceneManager.GetActiveScene().buildIndex - 2);
+        // saveMgr.SetNight(SceneManager.GetActiveScene().buildIndex - 2);
         camLookScript.SwitchTablet();
         GetComponent<Animator>().enabled = true;
         GetComponent<AudioSource>().Play();

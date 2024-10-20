@@ -8,6 +8,7 @@ using TMPro;
 public class SixAM : MonoBehaviour {
     public AudioSource endNightSound;
     public GameObject endNightPanel;
+    public SaveFileManager saveMgr;
 
     [Header("Animatronics")]
     public Krtkus krtkusak;
@@ -51,40 +52,39 @@ public class SixAM : MonoBehaviour {
     }
 
     IEnumerator SwitchNextNight() {
-        int scene = SceneManager.GetActiveScene().buildIndex;
-        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        int currentNight = scene - 1;
-        int nextNight = scene;
+        int currentNight = saveMgr.GetNight();
+        int nextNight = currentNight + 1;
 
         // Debug.Log(string.Format("Current scene: {0}; Next scene: {1} Current night: {2}; Next night: {3}", scene, nextScene, currentNight, nextNight));
 
         StartCoroutine(SetRandomNumbers());
         yield return new WaitForSeconds(10f);
-        if (scene <= 5 && scene >= 2 ) {
+        if (currentNight < 5 && currentNight > 0 ) {
             // Načte další noc
-            PlayerPrefs.SetInt("night", nextNight);
-            PlayerPrefs.Save();
+            saveMgr.SetNight(nextNight);
 
-            SceneManager.LoadScene(nextScene);
-        } else if (scene == 6) {
+            saveMgr.SaveAll();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        } else if (currentNight == 5) {
             // Načte victory scénu
-            PlayerPrefs.SetInt("night", nextNight);
-            PlayerPrefs.Save();
+            saveMgr.SetNight(nextNight);
 
-            SceneManager.LoadScene(10);
-        } else if (scene == 7 || scene == 8) {
+            saveMgr.SaveAll();
+            SceneManager.LoadScene(4);
+        } else if (currentNight == 6 || currentNight == 7) {
             // Načte main menu
-            if (scene == 7) {
-                if (PlayerPrefs.GetInt("night") == 6) {
-                    PlayerPrefs.SetInt("night", nextNight);
+            if (currentNight == 6) {
+                if (saveMgr.GetNight() == 6) {
+                    saveMgr.SetNight(nextNight);
                 }
-            } else if (scene == 8) {
+            } else if (currentNight == 7) {
+                // Give 3rd star to player
                 if (krtkusak.AILevel == 20 && myskusak.AILevel == 20 && zajac.AILevel == 20) {
-                    PlayerPrefs.SetInt("night", scene); // Scene should be equal to 8 at that moment
+                    saveMgr.SetNight(currentNight + 1); // Scene should be equal to 8 at that moment
                 }
             }
 
-            PlayerPrefs.Save();
+            saveMgr.SaveAll();
             SceneManager.LoadScene(1);
         }
     }

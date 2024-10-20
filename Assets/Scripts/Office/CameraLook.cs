@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
-using UnityEditor;
 
 using ETouch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+using UnityEngine.InputSystem.Utilities;
 
 public class CameraLook : MonoBehaviour {
     public InputActionAsset inputActions;
@@ -29,6 +28,10 @@ public class CameraLook : MonoBehaviour {
     private bool canDoTablet = true;
 
     void Awake() {
+        #if UNITY_EDITOR
+            TouchSimulation.Enable();
+        #endif
+
         EnhancedTouchSupport.Enable();
         officeKeybinds = inputActions.FindActionMap("Office input");
         officeMouseBinds = inputActions.FindActionMap("Office input Mouse");
@@ -53,8 +56,10 @@ public class CameraLook : MonoBehaviour {
                 break;
 
             case RuntimePlatform.Android or RuntimePlatform.IPhonePlayer:
+                ReadOnlyArray<ETouch> activeT = ETouch.activeTouches;
                 mousex = ETouch.activeTouches[0].screenPosition.x;
                 mousey = ETouch.activeTouches[0].screenPosition.y;
+                Debug.Log(string.Format("{0}; {1}", mousex, mousey));
                 break;
         }
 
@@ -67,7 +72,7 @@ public class CameraLook : MonoBehaviour {
         }
 
         if (mousex >= 559.5f && mousex <= Screen.width - 561 && mousey <= 60f) {
-            StartCoroutine(ToggleTabletMouse());
+            // StartCoroutine(ToggleTabletMouse());
         }
     }
 

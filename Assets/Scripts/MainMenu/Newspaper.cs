@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Newspaper : MonoBehaviour {
     public GameObject mainmenu;
     public Animator animator;
+    public SaveFileManager saveMgr;
 
     public void ShowPaper() {
         StartCoroutine(showNewspapers());
@@ -15,6 +16,7 @@ public class Newspaper : MonoBehaviour {
         animator.SetBool("Show", false);
         yield return new WaitForSeconds(5);
 
+        saveMgr.SaveAll();
         SceneManager.LoadScene(2);
     }
     

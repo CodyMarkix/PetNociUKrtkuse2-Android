@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameTime : MonoBehaviour {
     public TMPro.TMP_Text text;
+    public SaveFileManager saveMgr;
+
     [System.NonSerialized]
     public int time = 0;
 
@@ -20,11 +22,8 @@ public class GameTime : MonoBehaviour {
 
     private SixAM sixAmScript;
 
-    void Awake() {
-        currentNight = SceneManager.GetActiveScene().buildIndex - 1;
-    }
-
     void Start() {
+        currentNight = saveMgr.GetNight();
         text = GetComponent<TMPro.TMP_Text>();
         sixAmScript = GetComponent<SixAM>();
         

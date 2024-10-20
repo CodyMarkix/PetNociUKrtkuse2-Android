@@ -25,8 +25,9 @@ public class Myskus : MonoBehaviour {
         "playArea2"
     };
 
-    [Range(0, 20)]
+    [System.NonSerialized]
     public int AILevel;
+
     public bool opportunityRandomness;
 
     [Header("Other scripts")]
@@ -36,6 +37,7 @@ public class Myskus : MonoBehaviour {
     public DoorButton doorScript;
     public GameTime gameTimeScript;
     public CameraButtons camButtonsScript;
+    public SaveFileManager saveMgr;
 
     [Header("Sounds")]
     public AudioSource jumpscareSFX;
@@ -49,9 +51,13 @@ public class Myskus : MonoBehaviour {
     private int currentPosIndex = 0;
     private Vector3 initialPos;
     private Animator animator;
+    private int[] initialAILevels = {
+        0, 1, 2, 6, 5, 5
+    };
     System.Random rng = new System.Random();
     
     void Start() {
+        AILevel = initialAILevels[saveMgr.GetNight() - 1];
         StartCoroutine(giveOpportunity());
         animator = transform.gameObject.GetComponent<Animator>();
         initialPos = restaurantPositions["stage"];
@@ -188,7 +194,7 @@ public class Myskus : MonoBehaviour {
     }
 
     IEnumerator InitiateJumpscare() {
-        PlayerPrefs.SetInt("night", SceneManager.GetActiveScene().buildIndex - 2);
+        // PlayerPrefs.SetInt("night", SceneManager.GetActiveScene().buildIndex - 2);
         yield return new WaitForSeconds(6f);
         StartCoroutine(RunningAnimation());
     }

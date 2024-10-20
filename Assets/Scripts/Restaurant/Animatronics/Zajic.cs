@@ -36,8 +36,9 @@ public class Zajic : MonoBehaviour {
         "door"
     };
 
-    [Range(0, 20)]
+    [System.NonSerialized]
     public int AILevel;
+
     public bool opportunityRandomness;
     public Fan fanScript;
     public CameraLook camLookScript;
@@ -46,6 +47,7 @@ public class Zajic : MonoBehaviour {
     public GameTime gameTimeScript;
     public GameObject realtimeLight;
     public AudioSource kitchenSounds;
+    public SaveFileManager saveMgr;
 
     private bool movementOpportunity = false;
     private bool canHaveOpportunity = true;
@@ -53,9 +55,13 @@ public class Zajic : MonoBehaviour {
     private int opportunitiesInKitchen;
     private Vector3 initialPos;
     private bool isPlayingKitchenSounds = false;
+    private int[] initialAILevels = {
+        0, 1, 5, 4, 7, 7
+    };
     System.Random rng = new System.Random();
     
     void Start() {
+        AILevel = initialAILevels[saveMgr.GetNight() - 1];
         opportunitiesInKitchen = gameTimeScript.currentNight < 7 ? AILevel / 2 : PlayerPrefs.GetInt("ZajicAI") / 2;
         initialPos = restaurantPositions["podium"];
         StartCoroutine(giveOpportunity());
@@ -268,7 +274,7 @@ public class Zajic : MonoBehaviour {
     IEnumerator Jumpscare() {
         Debug.LogAssertion("JUMPSCARE ZAJIC");
         realtimeLight.SetActive(true);
-        PlayerPrefs.SetInt("night", SceneManager.GetActiveScene().buildIndex - 2);
+        // PlayerPrefs.SetInt("night", SceneManager.GetActiveScene().buildIndex - 2);
         camLookScript.SwitchTablet();
         GetComponent<Animator>().enabled = true;
         GetComponent<AudioSource>().Play();
