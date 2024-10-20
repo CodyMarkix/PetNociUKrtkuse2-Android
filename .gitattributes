@@ -129,4 +129,3 @@
 *.rar lfs
 *.tar lfs
 
-!Github/**/* 
